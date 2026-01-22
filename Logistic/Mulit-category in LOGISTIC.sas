@@ -93,34 +93,97 @@ proc format;
     'High'='3. High'
   ;
 run;
+Title "Proportional Odds, Both Predictors";
 proc logistic data=sashelp.heart;
   format chol_status $CholReOrder.;
   model chol_status = AgeAtStart Weight / link=logit;
-  *ods select ResponseProfile FitStatistics CumulativeModelTest
-    ParameterEstimates OddsRatios;
+  ods select FitStatistics;
 run;
 
+Title "No Proportional Odds on Either Predictor";
 proc logistic data=sashelp.heart;
   format chol_status $CholReOrder.;
   model chol_status = AgeAtStart Weight / link=logit unequalslopes;
-  *ods select ResponseProfile FitStatistics CumulativeModelTest
-    ParameterEstimates OddsRatios;
+  ods select FitStatistics;
 run;
 
+Title "Proportional Odds for Weight, not for Age";
 proc logistic data=sashelp.heart;
   format chol_status $CholReOrder.;
   model chol_status = AgeAtStart Weight / link=logit unequalslopes=AgeAtStart;
-  *ods select ResponseProfile FitStatistics CumulativeModelTest
-    ParameterEstimates OddsRatios;
+  ods select FitStatistics;
 run;
 
+Title "Proportional Odds for Age, not for Weight";
 proc logistic data=sashelp.heart;
   format chol_status $CholReOrder.;
   model chol_status = AgeAtStart Weight / link=logit unequalslopes=Weight;
-  *ods select ResponseProfile FitStatistics CumulativeModelTest
-    ParameterEstimates OddsRatios;
+  ods select FitStatistics;
+run;
+/**AIC says do proportional odds for Age (not Weight)
+   SC/SBC says do both as proportional odds for both (original model)**/
+
+Title "Proportional Odds, Both Predictors";
+Title2 "from SBC";
+proc logistic data=sashelp.heart descending;
+  format chol_status $CholReOrder.;
+  model chol_status = AgeAtStart Weight / link=logit;
+  ods select ResponseProfile CumulativeModelTest
+             ParameterEstimates OddsRatios;
+run;
+Title "Proportional Odds for Age, not for Weight";
+Title2 "from AIC";
+proc logistic data=sashelp.heart descending;
+  format chol_status $CholReOrder.;
+  model chol_status = AgeAtStart Weight / link=logit unequalslopes=Weight;
+  ods select ResponseProfile CumulativeModelTest
+             ParameterEstimates OddsRatios;
 run;
 
+Title "Proportional Odds, Both Predictors";
+proc logistic data=sashelp.heart;
+  format chol_status $CholReOrder.;
+  model chol_status = AgeAtStart Weight / link=alogit;
+  ods select FitStatistics;
+run;
 
+Title "No Proportional Odds on Either Predictor";
+proc logistic data=sashelp.heart;
+  format chol_status $CholReOrder.;
+  model chol_status = AgeAtStart Weight / link=alogit unequalslopes;
+  ods select FitStatistics;
+run;
 
+Title "Proportional Odds for Weight, not for Age";
+proc logistic data=sashelp.heart;
+  format chol_status $CholReOrder.;
+  model chol_status = AgeAtStart Weight / link=alogit unequalslopes=AgeAtStart;
+  ods select FitStatistics;
+run;
 
+Title "Proportional Odds for Age, not for Weight";
+proc logistic data=sashelp.heart;
+  format chol_status $CholReOrder.;
+  model chol_status = AgeAtStart Weight / link=alogit unequalslopes=Weight;
+  ods select FitStatistics;
+run;
+/**AIC says do proportional odds for Age (not Weight)
+   SC/SBC says do both as proportional odds for both (original model)
+  same as cumulative**/
+
+Title "Proportional Odds, Both Predictors";
+Title2 "from SBC";
+proc logistic data=sashelp.heart descending;
+  format chol_status $CholReOrder.;
+  model chol_status = AgeAtStart Weight / link=alogit;
+  ods select ResponseProfile CumulativeModelTest
+             ParameterEstimates OddsRatios;
+run;
+Title "Proportional Odds for Age, not for Weight";
+Title2 "from AIC";
+proc logistic data=sashelp.heart descending;
+  format chol_status $CholReOrder.;
+  model chol_status = AgeAtStart Weight / link=alogit unequalslopes=Weight;
+  ods select ResponseProfile CumulativeModelTest
+             ParameterEstimates OddsRatios;
+run;
