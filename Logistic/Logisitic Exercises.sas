@@ -80,6 +80,124 @@ run;
 
 /**fit a model to predict region from BA/BS rate, income per capita, and
 percentage of population 18 to 34**/
+ods graphics off;
 proc logistic data=sasdata.cdi;
   model region = ba_bs inc_per_cap pop18_34 / link=glogit;
+  units inc_per_cap = 1000;
+  oddsratio inc_per_cap / cl=wald;
+  output out=results predprobs=(I);
+run;
+
+proc freq data=results;
+  table _from_*_into_;
+run;
+
+ods graphics off;
+proc logistic data=sasdata.cdi;
+  where region ne 3;
+  model region = ba_bs inc_per_cap pop18_34 / link=glogit;
+  units inc_per_cap = 1000;
+  oddsratio inc_per_cap / cl=wald;
+  output out=results predprobs=(I);
+run;
+
+proc freq data=results;
+  table _from_*_into_;
+run;
+
+proc format;
+  value priceCat
+    low-200000 = '1. Below $200K'
+    200000-300000 = '2. $200-$300K'
+    300000-high = '3. Above $300K'
+    ;
+run;
+
+Title 'Proportional Odds';
+proc logistic data=sasdata.realestate;
+  model price = sq_ft|bedrooms;
+  format price priceCat.;
+  ods select fitStatistics;
+run;
+
+Title 'No Proportional Odds';
+proc logistic data=sasdata.realestate;
+  model price = sq_ft|bedrooms / unequalslopes;
+  format price priceCat.;
+  ods select fitStatistics;
+run;
+
+Title 'Unequal on sq ft';
+proc logistic data=sasdata.realestate;
+  model price = sq_ft|bedrooms / unequalslopes=sq_ft;
+  format price priceCat.;
+  ods select fitStatistics;
+run;
+
+Title 'Unequal on bedrooms';
+proc logistic data=sasdata.realestate;
+  model price = sq_ft|bedrooms / unequalslopes=bedrooms;
+  format price priceCat.;
+  ods select fitStatistics;
+run;
+
+Title 'Unequal on interaction';
+proc logistic data=sasdata.realestate;
+  model price = sq_ft|bedrooms / unequalslopes=sq_ft*bedrooms;
+  format price priceCat.;
+  ods select fitStatistics;
+run;
+
+Title 'Unequal on sq ft and interaction';
+proc logistic data=sasdata.realestate;
+  model price = sq_ft|bedrooms / unequalslopes=(sq_ft sq_ft*bedrooms);
+  format price priceCat.;
+  ods select fitStatistics;
+run;
+
+Title 'Unequal on bedrooms and interaction';
+proc logistic data=sasdata.realestate;
+  model price = sq_ft|bedrooms / unequalslopes=(bedrooms sq_ft*bedrooms);
+  format price priceCat.;
+  ods select fitStatistics;
+run;
+
+Title 'Unequal on sq ft and bedrooms';
+proc logistic data=sasdata.realestate;
+  model price = sq_ft|bedrooms / unequalslopes=(sq_ft bedrooms);
+  format price priceCat.;
+  ods select fitStatistics;
+run;
+
+Title 'AIC says: No Proportional Odds';
+proc logistic data=sasdata.realestate;
+  model price = sq_ft|bedrooms / unequalslopes;
+  format price priceCat.;
+run;
+
+Title 'SBC says: Unequal on sq ft';
+proc logistic data=sasdata.realestate;
+  model price = sq_ft|bedrooms / unequalslopes=sq_ft;
+  format price priceCat.;
+run;
+
+Title 'Proportional Odds';
+proc logistic data=sasdata.realestate;
+  model price = sq_ft|bedrooms;
+  format price priceCat.;
+run;
+/**If an interaction is present, default odds ratios are 
+suppressed...effects are inconsistent, so you are expected
+to analyze them.**/
+
+Title 'Proportional Odds';
+ods graphics off;
+proc logistic data=sasdata.realestate;
+  model price = sq_ft|bedrooms;
+  format price priceCat.;
+  units sq_ft = 100;
+  oddsratio sq_ft / at(bedrooms=1 2 3);
+  oddsratio bedrooms / at(sq_ft=1500 2000 2500);
+  /**Oddsratio performs a bit like LSMEANS or SLICE,
+      but applies to any type of predictor, categorical or quantitative**/
 run;
