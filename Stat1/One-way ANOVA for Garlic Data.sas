@@ -35,3 +35,21 @@ proc univariate data=results;
   qqplot residual / normal(mu=est sigma=est);
 run;/**check them for normality**/
 
+
+proc glm data=stat1.garlic;
+  class fertilizer;
+  model bulbWt = fertilizer / solution;
+  lsmeans fertilizer / diff adjust=tukey lines;
+run;
+
+proc glm data=stat1.garlic;
+  class fertilizer;
+  model bulbWt = fertilizer / solution;
+  lsmeans fertilizer / diff=control('4') adjust=dunnett;
+run;
+
+proc glm data=stat1.garlic;
+  class fertilizer;
+  model bulbWt = fertilizer / solution;
+  lsmeans fertilizer / diff=all adjust=T;/*just do t-tests, no adjustment*/
+run;
