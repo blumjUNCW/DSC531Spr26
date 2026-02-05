@@ -115,9 +115,88 @@ proc logistic data=use;
   ods select ParameterEstimates OddsRatios;
 run;
 
-Title;
+Title 'None unequal';
 proc logistic data=use;
   format GradRate quarters. cbsatype cbsatype.;
   class cbsatype / param=glm;
   model GradRate = cbsatype|tuition;
+  ods select fitStatistics;
+run;
+
+Title 'All unequal';
+proc logistic data=use;
+  format GradRate quarters. cbsatype cbsatype.;
+  class cbsatype / param=glm;
+  model GradRate = cbsatype|tuition / unequalslopes;
+  ods select fitStatistics;
+run;
+
+Title 'Type unequal';
+proc logistic data=use;
+  format GradRate quarters. cbsatype cbsatype.;
+  class cbsatype / param=glm;
+  model GradRate = cbsatype|tuition / unequalslopes=cbsatype;
+  ods select fitStatistics;
+run;
+
+Title 'Tuition unequal';
+proc logistic data=use;
+  format GradRate quarters. cbsatype cbsatype.;
+  class cbsatype / param=glm;
+  model GradRate = cbsatype|tuition / unequalslopes=tuition;
+  ods select fitStatistics;
+run;
+
+Title 'Interaction unequal';
+proc logistic data=use;
+  format GradRate quarters. cbsatype cbsatype.;
+  class cbsatype / param=glm;
+  model GradRate = cbsatype|tuition / unequalslopes=cbsatype*tuition;
+  ods select fitStatistics;
+run;
+
+Title 'Type and Tuition unequal';
+proc logistic data=use;
+  format GradRate quarters. cbsatype cbsatype.;
+  class cbsatype / param=glm;
+  model GradRate = cbsatype|tuition / unequalslopes=(cbsatype tuition);
+  ods select fitStatistics;
+run;
+
+Title 'Type and Interaction unequal';
+proc logistic data=use;
+  format GradRate quarters. cbsatype cbsatype.;
+  class cbsatype / param=glm;
+  model GradRate = cbsatype|tuition / unequalslopes=(cbsatype cbsatype*tuition);
+  ods select fitStatistics;
+run;
+
+Title 'Tuition and Interaction unequal';
+proc logistic data=use;
+  format GradRate quarters. cbsatype cbsatype.;
+  class cbsatype / param=glm;
+  model GradRate = cbsatype|tuition / unequalslopes=(tuition cbsatype*tuition);
+  ods select fitStatistics;
+run;
+
+/**Again, we get a different picture from AIC and SBC...**/
+Title 'None unequal';
+proc logistic data=use;
+  format GradRate quarters. cbsatype cbsatype.;
+  class cbsatype / param=glm;
+  model GradRate = cbsatype|tuition / link=logit;
+  oddsratio cbsatype / at(tuition=15 20 25);
+  *ods select ParameterEstimates OddsRatiosWald;
+  estimate 'Slope diff' cbsatype*tuition 1 -1 / cl;
+    /**estimate works in cumulative with proportional odds only**/
+run;
+
+Title 'All unequal';
+proc logistic data=use;
+  format GradRate quarters. cbsatype cbsatype.;
+  class cbsatype / param=glm;
+  model GradRate = cbsatype|tuition / unequalslopes link=logit;
+  oddsratio cbsatype / at(tuition=15 20 25);
+  *ods select ParameterEstimates OddsRatiosWald;
+  estimate 'Slope diff' cbsatype*tuition 1 0 0 -1 0 0 / cl;
 run;
