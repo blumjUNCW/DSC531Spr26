@@ -60,8 +60,70 @@ proc glmselect data=cdi;
             /**Can get detailed information on each step if you want*/
 run;
 
+proc glmselect data=cdi seed=210;
+    class region;
+    model inc_per_cap = region land--unemp popDensity CrimeRate / 
+            selection=stepwise(select=cv);
+run;
+
+proc glmselect data=cdi seed=210;
+    class region;
+    model inc_per_cap = region land--unemp popDensity CrimeRate / 
+            selection=stepwise(select=cv);
+run;/**Folding is random, if you want to ensure folding is the 
+    same from one instance to another, use a specific seed value*/
+
 proc glmselect data=cdi;
     class region;
     model inc_per_cap = region land--unemp popDensity CrimeRate / 
-            selection=stepwise(select=cv) details=all;
+            selection=stepwise(select=sl choose=cv)
+            stats=(aic aicc bic sbc press);
+run;
+
+data rand;
+    set cdi;
+    rand=ranuni(0);
+    /*rand is random uniform on (0,1)*/
+run;
+
+proc sgplot data=rand;
+  histogram rand / binstart=0.05 binstart=0.1;
+run;
+
+proc sort data=rand;
+  by rand;
+run;/**random order, so cut into k folds*/
+
+proc glmselect data=cdi seed=210;
+    class region;
+    model inc_per_cap = region land--unemp popDensity CrimeRate / 
+            selection=stepwise(select=cv);
+run;
+proc glmselect data=cdi;
+    class region;
+    model inc_per_cap = region land--unemp popDensity CrimeRate / 
+            selection=stepwise(select=cv) cvmethod=block;
+            /**block divides the data set as is into k
+              blocks of rows*/
+run;
+
+proc glmselect data=cdi seed=210;
+    class region;
+    model inc_per_cap = region land--unemp popDensity CrimeRate / 
+            selection=stepwise(select=cv) cvmethod=random(10);
+run;
+
+proc glmselect data=cdi;
+    model inc_per_cap = land--unemp popDensity CrimeRate / 
+            selection=stepwise(select=cv) 
+            cvmethod=index(region);
+            /*Index uses a variable you've provided in the
+                data to identify the folds (and 
+                so the number of folds is implicit)*/
+run;
+
+proc glmselect data=sashelp.cars;
+    class origin type;
+    model msrp = type origin mpg: weight engineSize /
+          selection=stepwise(select=cv);
 run;
