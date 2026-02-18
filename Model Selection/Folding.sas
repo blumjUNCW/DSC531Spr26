@@ -45,13 +45,14 @@ data StratFolding;
   set StratFolding;
   retain FoldSize;
   by weight_status bp_status;
+    /**create k-folds in each group*/
 
   if first.bp_status then do;
-    c=0;
-    foldsize=count/5;
+    c=0;/*restart row counter...*/
+    foldsize=count/5;/*...get fold size in the current group*/
   end;
-  c+1;
-  fold=min(floor(c/foldsize)+1,5);
+  c+1;/**count rows*/
+  fold=min(floor(c/foldsize)+1,5);/**assign to fold*/
 run;
 
 
