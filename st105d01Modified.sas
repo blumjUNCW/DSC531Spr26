@@ -27,9 +27,24 @@ quit;
 
 data diagnostics;
     set diagnostics;
-    if leverage ge %sysevalf(16/300) then obs=_n_;
-      else obs=.;
+    if leverage ge %sysevalf(16/300) then do;
+        obs=_n_;
+        w=1-leverage;
+        end;
+      else do;
+        obs=.;
+        w=1;
+      end;
 run;
+
+proc reg data=diagnostics;
+    CONTINUOUS: model SalePrice 
+                  = Gr_Liv_Area Basement_Area Garage_Area Deck_Porch_Area 
+                    Lot_Area Age_Sold Bedroom_AbvGr Total_Bathroom;
+    title 'SalePrice Model - Plots of Diagnostic Statistics, Weighted';
+    weight w;
+run;
+quit;
 
 proc sgplot data=diagnostics;
     scatter x=pred y=StudentRCV;
