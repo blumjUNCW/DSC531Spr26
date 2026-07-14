@@ -1,0 +1,7 @@
+{
+  "bundle": "t015_corr_reg",
+  "source_file": "Stat1/Correlation and Test for Significance.sas",
+  "source_blob_sha": "90aec9be9cb77906e309bc8074097f04918458f6",
+  "source_commit": "76352a07da9e1ac4f75c82bba39dd33bcf8759c7",
+  "notes": "Correlation and significance testing: PROC CORR (rank, with SalePrice, scatter plots) over eight predictors, then PROC GLM bivariate regression. STAT1.AmesHousing3 replaced by a synthetic housing sample with matching columns; the %let interval list and PROC CORR/GLM logic are the author's."
+}

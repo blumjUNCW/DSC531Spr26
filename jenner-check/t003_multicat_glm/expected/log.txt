@@ -1,0 +1,34 @@
+NOTE: Jenner v1.5.30 (build v1.5.30+unknown.20260714T043649Z.x86_64-unknown-linux-gnu)
+
+NOTE: Option OBS changed to 100.
+NOTE: DATA cars
+
+
+NOTE: Read 12 rows from sashelp.cars.
+NOTE: Wrote cars (12 rows, 18 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: ODS Graphics is OFF.
+NOTE: PROC GLM data=cars
+
+NOTE: OUTPUT dataset written to: /tmp/work/r_719cb528637d4ebb998356b6299a51ad/work/22ea4adb-7297-4af2-97d3-b89ba1214155/predictions.avro
+NOTE: Warning message:
+NOTE: In file(paste0("<wrapper>", .jen_rfd), "rb") :
+NOTE:   using 'raw = TRUE' because '<wrapper>' is a fifo or pipe
+NOTE: Warning message:
+NOTE: In readLines(file("stdin")) : incomplete final line found on 'stdin'
+NOTE: PROC GLM statement used.
+NOTE: PROC SGPLOT data=predictions
+
+NOTE: PROC SGPLOT requires ODS GRAPHICS ON. No output generated.
+NOTE: DATA class
+
+
+NOTE: Read 12 rows from predictions.
+NOTE: Wrote class (12 rows, 21 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC FREQ
+NOTE: PROC FREQ statement used.

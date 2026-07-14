@@ -1,0 +1,7 @@
+{
+  "bundle": "t012_ttest_onesample",
+  "source_file": "Stat1/One Sample T-Test Question.sas",
+  "source_blob_sha": "5e986e9d63dcfab7adf000491c18fa1986b0ae86",
+  "source_commit": "76352a07da9e1ac4f75c82bba39dd33bcf8759c7",
+  "notes": "One-sample t-test of body temperature against H0=98.6: PROC UNIVARIATE (histogram/qqplot) + PROC TTEST. Course library STAT1.normtemp replaced by an inline DATALINES sample matching the bodytemp column; analysis unchanged."
+}

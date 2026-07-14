@@ -1,0 +1,76 @@
+                                                The UNIVARIATE Procedure
+                                                  Variable:  bodytemp
+
+                                                        Moments
+
+N                                 40    Sum Weights                       40
+Mean                       98.375000    Sum Observations         3935.000000
+Std Deviation               0.453335    Variance                    0.205513
+Skewness                   -0.047584    Kurtosis                   -0.882824
+Uncorrected SS         387113.640000    Corrected SS                8.015000
+Coeff Variation             0.460824    Std Error Mean              0.071679
+
+         Basic Statistical Measures         
+
+Location             Variability            
+--------  ---------  -------------  --------
+Mean      98.375000  Std Deviation  0.453335
+Median    98.400000  Variance       0.205513
+Mode      98.000000  Range          1.700000
+
+     NOTE: The mode displayed is the smallest of 7 modes with a count of 3.
+
+Quantiles (Definition 5)
+
+Quantile     Estimate
+----------  ---------
+0% Min      97.500000
+1%          97.500000
+5%          97.650000
+10%         97.750000
+25% Q1      98.000000
+50% Median  98.400000
+75% Q3      98.700000
+90%         99.000000
+95%         99.100000
+99%         99.200000
+100% Max    99.200000
+
+          Extreme Observations          
+
+Lowest               Highest            
+--------  ---------  --------  ---------
+Value     97.500000  Value     99.000000
+Value     97.600000  Value     99.000000
+Value     97.700000  Value     99.100000
+Value     97.700000  Value     99.100000
+Value     97.800000  Value     99.200000
+
+
+
+
+         Tests for Location          
+
+Test                Statistic   p Value
+------------------  ---------  --------
+Student's t         1372.446048696         0
+Sign                       20  0.000000001
+Signed Rank               820  0.000000036
+
+         The TTEST Procedure          
+         Variable:  bodytemp          
+
+       N      Mean   Std Dev   Std Err
+--------  --------  --------  --------
+      40   98.3750    0.4533    0.0717
+
+Lower CL Mean      Mean  Upper CL Mean  Lower CL Std Dev   Std Dev  Upper CL Std Dev
+-------------  --------  -------------  ----------------  --------  ----------------
+      98.2300   98.3750        98.5200            0.3714    0.4533            0.5821
+
+      H0: Mean = 98.6       
+
+      DF   t Value  Pr > |t|
+--------  --------  --------
+      39     -3.14    0.0032
+

@@ -1,0 +1,50 @@
+                                                   The FREQ Procedure
+
+Table of Cholesterol status by Weight status
+
+Cholesterol status |    Normal |Overweight |      Total
+-------------------+-----------+-----------+-----------
+Borderline         |         5 |         4 |          9
+                   |     10.00 |      8.00 |      18.00
+                   |     55.56 |     44.44 |     100.00
+                   |     18.52 |     17.39 |      18.00
+-------------------+-----------+-----------+-----------
+Desirable          |        21 |         3 |         24
+                   |     42.00 |      6.00 |      48.00
+                   |     87.50 |     12.50 |     100.00
+                   |     77.78 |     13.04 |      48.00
+-------------------+-----------+-----------+-----------
+High               |         1 |        16 |         17
+                   |      2.00 |     32.00 |      34.00
+                   |      5.88 |     94.12 |     100.00
+                   |      3.70 |     69.57 |      34.00
+-------------------+-----------+-----------+-----------
+Total              |        27 |        23 |         50
+
+Statistics for Table of Cholesterol status by Weight status
+
+Statistic                                DF  Value         Prob
+--------------------------------------------------------------
+Chi-Square                                2 26.6973       0.0000
+Likelihood Ratio Chi-Square               2 30.9377       0.0000
+
+Cramer's V                           0.7307
+Contingency Coefficient              0.5900
+
+WARNING: 33% of the cells have expected counts less than 5. Chi-Square may not be a valid test.
+
+Statistics for Table of Cholesterol status by Weight status
+
+Statistic                             Value          ASE
+--------------------------------------------------------
+Phi Coefficient                      0.7307
+Cramer's V                           0.7307
+Contingency Coefficient              0.5900
+Gamma                                0.6513
+Kendall's Tau-b                      0.4895
+Stuart's Tau-c                       0.5440
+Somers' D C|R (SMDCR)                0.4376
+Somers' D R|C (SMDRC)                0.5475
+Pearson Correlation                  0.4748
+Spearman Correlation                 0.5144
+

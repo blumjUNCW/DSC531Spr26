@@ -1,0 +1,29 @@
+NOTE: Jenner v1.5.30 (build v1.5.30+unknown.20260714T020019Z.x86_64-unknown-linux-gnu)
+
+NOTE: Option OBS changed to 100.
+NOTE: DATA AmesHousing3
+
+
+NOTE: Wrote AmesHousing3 (60 rows, 10 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: ODS Graphics settings reset to defaults.
+NOTE: ODS Graphics image-name index reset.
+NOTE: ODS Graphics is ON (width=640px, height=480px, format=SVG).
+NOTE: PROC CORR data=AmesHousing3
+
+NOTE: ODS plot written: corr_heatmap.spec.json
+NOTE: PROC CORR ODS Graphics generated.
+NOTE: ODS Graphics is OFF.
+NOTE: PROC CORR data=AmesHousing3
+
+NOTE: PROC GLM data=AmesHousing3
+
+NOTE: ODS OUTPUT: ParameterEstimates written to 'Params'.
+NOTE: Warning message:
+NOTE: In file(paste0("<wrapper>", .jen_rfd), "rb") :
+NOTE:   using 'raw = TRUE' because '<wrapper>' is a fifo or pipe
+NOTE: Warning message:
+NOTE: In readLines(file("stdin")) : incomplete final line found on 'stdin'
+NOTE: PROC GLM statement used.

@@ -1,0 +1,7 @@
+{
+  "bundle": "t003_multicat_glm",
+  "source_file": "Logistic/Multi-Category Response in GLM.sas",
+  "source_blob_sha": "81505326d9deb007f6f77e6b5d92e1dd88bc513d",
+  "source_commit": "76352a07da9e1ac4f75c82bba39dd33bcf8759c7",
+  "notes": "Multi-category (Asia/Europe/USA) classification: PROC GLM fits three dummy responses on sashelp.cars, then a confusion matrix via PROC FREQ. Runs unmodified on sashelp.cars."
+}
