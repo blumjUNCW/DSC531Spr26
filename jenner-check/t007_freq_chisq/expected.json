@@ -1,0 +1,21 @@
+{
+  "_captured_at": "2026-07-14T05:39:31Z",
+  "_captured_run_id": "r_646eb03259d846048ca3faf102b8a973",
+  "status": "ok",
+  "exit_code": 0,
+  "log_contains": [
+    "NOTE: PROC FORMAT library=WORK",
+    "NOTE: FORMAT $chol defined (3 ranges).",
+    "NOTE: FORMAT $Weight defined (3 ranges).",
+    "NOTE: PROC FREQ",
+    "NOTE: PROC FREQ statement used."
+  ],
+  "log_does_not_contain": [
+    "ERROR:",
+    "[JENNER-ERROR"
+  ],
+  "diagnostics": {
+    "parse_warnings": [],
+    "runtime_warnings": []
+  }
+}

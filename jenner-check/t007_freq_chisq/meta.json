@@ -1,0 +1,7 @@
+{
+  "bundle": "t007_freq_chisq",
+  "source_file": "Stat1/Basic categorical associations and logistic.sas",
+  "source_blob_sha": "f7973f83b1071e975bf4bde1bebf5147bf1a9b76",
+  "source_commit": "76352a07da9e1ac4f75c82bba39dd33bcf8759c7",
+  "notes": "Categorical association block: PROC FORMAT value formats + PROC FREQ chol_status*weight_status with chisq measures cl on sashelp.heart. First block of the script runs unmodified; later blocks use a course library."
+}

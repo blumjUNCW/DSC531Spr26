@@ -1,0 +1,21 @@
+{
+  "_captured_at": "2026-07-14T05:39:31Z",
+  "_captured_run_id": "r_744d5b7a182a4018ad72fce16a05179e",
+  "status": "ok",
+  "exit_code": 0,
+  "log_contains": [
+    "NOTE: Read 30 rows from DATALINES.",
+    "NOTE: Wrote german (30 rows, 2 columns).",
+    "NOTE: PROC UNIVARIATE",
+    "NOTE: PROC TTEST data=german",
+    "NOTE: PROC TTEST ODS Graphics generated."
+  ],
+  "log_does_not_contain": [
+    "ERROR:",
+    "[JENNER-ERROR"
+  ],
+  "diagnostics": {
+    "parse_warnings": [],
+    "runtime_warnings": []
+  }
+}

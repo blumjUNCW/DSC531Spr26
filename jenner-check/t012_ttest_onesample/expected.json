@@ -1,0 +1,21 @@
+{
+  "_captured_at": "2026-07-14T05:39:31Z",
+  "_captured_run_id": "r_1fda10aef03a44e8909491c830db0a3c",
+  "status": "ok",
+  "exit_code": 0,
+  "log_contains": [
+    "NOTE: Processing inline DATALINES (4 lines)",
+    "NOTE: Read 40 rows from DATALINES.",
+    "NOTE: Wrote normtemp (40 rows, 1 columns).",
+    "NOTE: PROC UNIVARIATE",
+    "NOTE: PROC TTEST data=normtemp"
+  ],
+  "log_does_not_contain": [
+    "ERROR:",
+    "[JENNER-ERROR"
+  ],
+  "diagnostics": {
+    "parse_warnings": [],
+    "runtime_warnings": []
+  }
+}

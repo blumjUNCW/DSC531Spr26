@@ -1,0 +1,35 @@
+NOTE: Jenner v1.5.30 (build v1.5.30+unknown.20260714T043649Z.x86_64-unknown-linux-gnu)
+
+NOTE: Option OBS changed to 100.
+NOTE: DATA german
+
+NOTE: Processing inline DATALINES (3 lines)
+
+NOTE: Read 30 rows from DATALINES.
+NOTE: Wrote german (30 rows, 2 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC UNIVARIATE
+NOTE: PROC TTEST data=german
+
+NOTE: ODS plot written: ttest_summary.spec.json
+NOTE: PROC TTEST ODS Graphics generated.
+NOTE: PROC TTEST statement used.
+NOTE: PROC GLM data=german
+
+NOTE: OUTPUT dataset written to: /tmp/work/r_744d5b7a182a4018ad72fce16a05179e/work/fb2dfcc1-5b59-4bbb-a164-d2632f88e5a6/results.avro
+NOTE: MEANS sidecar written to: /tmp/work/r_744d5b7a182a4018ad72fce16a05179e/work/fb2dfcc1-5b59-4bbb-a164-d2632f88e5a6/results_means.json
+NOTE: Warning message:
+NOTE: In file(paste0("<wrapper>", .jen_rfd), "rb") :
+NOTE:   using 'raw = TRUE' because '<wrapper>' is a fifo or pipe
+NOTE: Warning message:
+NOTE: In readLines(file("stdin")) : incomplete final line found on 'stdin'
+NOTE: ODS plot written: glm_residuals_vs_predicted.spec.json
+NOTE: ODS plot written: glm_residual_histogram_panel.spec.json
+NOTE: ODS plot written: glm_residuals_vs_obs_order.spec.json
+NOTE: ODS plot written: glm_qq_plot.spec.json
+NOTE: ODS plot written: glm_lsmeans_group.spec.json
+NOTE: PROC GLM ODS Graphics generated.
+NOTE: PROC GLM statement used.
+NOTE: PROC UNIVARIATE

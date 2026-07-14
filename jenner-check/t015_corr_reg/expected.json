@@ -1,0 +1,21 @@
+{
+  "_captured_at": "2026-07-14T05:39:31Z",
+  "_captured_run_id": "r_837733969aae44f6ab88e9d1928c6335",
+  "status": "ok",
+  "exit_code": 0,
+  "log_contains": [
+    "NOTE: DATA AmesHousing3",
+    "NOTE: Wrote AmesHousing3 (60 rows, 10 columns).",
+    "NOTE: DATA elapsed:",
+    "NOTE: PROC CORR data=AmesHousing3",
+    "NOTE: PROC CORR ODS Graphics generated."
+  ],
+  "log_does_not_contain": [
+    "ERROR:",
+    "[JENNER-ERROR"
+  ],
+  "diagnostics": {
+    "parse_warnings": [],
+    "runtime_warnings": []
+  }
+}

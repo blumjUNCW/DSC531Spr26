@@ -1,0 +1,7 @@
+{
+  "bundle": "t013_ttest_twosample",
+  "source_file": "Stat1/Two Sample T-Test Question.sas",
+  "source_blob_sha": "ee00d8c9a04fc18a2a9a0489b9af674b7371a56b",
+  "source_commit": "76352a07da9e1ac4f75c82bba39dd33bcf8759c7",
+  "notes": "Two-sample t-test framed as GLM/ANOVA: PROC TTEST by group + PROC GLM lsmeans/bartlett + residual normality check. STAT1.german replaced by an inline DATALINES sample (group,change); analysis unchanged."
+}

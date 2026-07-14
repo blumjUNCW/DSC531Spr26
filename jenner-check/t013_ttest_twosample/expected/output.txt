@@ -1,0 +1,246 @@
+                        group=A
+
+                                                The UNIVARIATE Procedure
+                                                   Variable:  change
+
+                                                        Moments
+
+N                                 15    Sum Weights                       15
+Mean                        5.426667    Sum Observations           81.400000
+Std Deviation               0.544409    Variance                    0.296381
+Skewness                   -0.045068    Kurtosis                   -1.286617
+Uncorrected SS            445.880000    Corrected SS                4.149333
+Coeff Variation            10.032103    Std Error Mean              0.140566
+
+        Basic Statistical Measures         
+
+Location            Variability            
+--------  --------  -------------  --------
+Mean      5.426667  Std Deviation  0.544409
+Median    5.500000  Variance       0.296381
+Mode             .  Range          1.700000
+
+Quantiles (Definition 5)
+
+Quantile    Estimate
+----------  --------
+0% Min      4.600000
+1%          4.600000
+5%          4.600000
+10%         4.700000
+25% Q1      4.900000
+50% Median  5.500000
+75% Q3      5.900000
+90%         6.100000
+95%         6.300000
+99%         6.300000
+100% Max    6.300000
+
+         Extreme Observations         
+
+Lowest              Highest           
+--------  --------  --------  --------
+Value     4.600000  Value     5.800000
+Value     4.700000  Value     5.900000
+Value     4.800000  Value     6.000000
+Value     4.900000  Value     6.100000
+Value     5.000000  Value     6.300000
+
+
+
+
+         Tests for Location          
+
+Test                Statistic   p Value
+------------------  ---------  --------
+Student's t         38.605895497         0
+Sign                      7.5  0.000061035
+Signed Rank               120  0.00065506
+
+
+                        group=B
+
+                                                The UNIVARIATE Procedure
+                                                   Variable:  change
+
+                                                        Moments
+
+N                                 15    Sum Weights                       15
+Mean                        3.220000    Sum Observations           48.300000
+Std Deviation               0.476895    Variance                    0.227429
+Skewness                    0.148817    Kurtosis                   -1.094436
+Uncorrected SS            158.710000    Corrected SS                3.184000
+Coeff Variation            14.810395    Std Error Mean              0.123134
+
+        Basic Statistical Measures         
+
+Location            Variability            
+--------  --------  -------------  --------
+Mean      3.220000  Std Deviation  0.476895
+Median    3.200000  Variance       0.227429
+Mode             .  Range          1.500000
+
+Quantiles (Definition 5)
+
+Quantile    Estimate
+----------  --------
+0% Min      2.500000
+1%          2.500000
+5%          2.500000
+10%         2.600000
+25% Q1      2.800000
+50% Median  3.200000
+75% Q3      3.600000
+90%         3.900000
+95%         4.000000
+99%         4.000000
+100% Max    4.000000
+
+         Extreme Observations         
+
+Lowest              Highest           
+--------  --------  --------  --------
+Value     2.500000  Value     3.500000
+Value     2.600000  Value     3.600000
+Value     2.700000  Value     3.800000
+Value     2.800000  Value     3.900000
+Value     2.900000  Value     4.000000
+
+
+
+
+         Tests for Location          
+
+Test                Statistic   p Value
+------------------  ---------  --------
+Student's t         26.150439334         0
+Sign                      7.5  0.000061035
+Signed Rank               120  0.00065506
+
+               The TTEST Procedure                
+                Variable:  change                 
+
+group              N      Mean   Std Dev   Std Err
+----------  --------  --------  --------  --------
+A                 15    5.4267    0.5444    0.1406
+B                 15    3.2200    0.4769    0.1231
+Diff (1-2)              2.2067                    
+
+group       Lower CL Mean      Mean  Upper CL Mean  Lower CL Std Dev   Std Dev  Upper CL Std Dev
+----------  -------------  --------  -------------  ----------------  --------  ----------------
+A                  5.1252    5.4267         5.7282            0.3986    0.5444            0.8586
+B                  2.9559    3.2200         3.4841            0.3491    0.4769            0.7521
+Diff (1-2)         1.8239    2.2067         2.5895            0.4061    0.5118            0.6921
+
+Method         Variances        DF   t Value  Pr > |t|
+-------------  ---------  --------  --------  --------
+Pooled         Equal            28     11.81    <.0001
+Satterthwaite  Unequal        27.5     11.81    <.0001
+
+   Equality of Variances    
+
+Method     F Value    Pr > F
+--------  --------  --------
+Folded F      1.30    0.6270
+
+                         The GLM Procedure                         
+                    Dependent Variable: change                     
+
+Source          DF  Sum of Squares  Mean Square   F Value    Pr > F
+--------  --------  --------------  -----------  --------  --------
+group            1        36.52033     36.52033    139.44    <.0001
+Error           28         7.33333      0.26190                    
+
+Root MSE           0.51177    R-Square            0.8328
+Adj R-Sq            0.8268
+
+                   Parameter Estimates                   
+
+Parameter    Estimate  Standard Error   t Value  Pr > |t|
+-----------  --------  --------------  --------  --------
+(Intercept)   5.42667         0.13214     41.07    <.0001
+groupB       -2.20667         0.18687    -11.81    <.0001
+
+       Means for Effect: group        
+
+Level         Mean   Std Dev         N
+--------  --------  --------  --------
+A          5.42667   0.54441        15
+B          3.22000   0.47689        15
+
+Bartlett's Test for Homogeneity of Variance
+
+Statistic    Pr > F
+---------  --------
+   0.2363    0.6269
+
+            Least Squares Means for group             
+
+Level       LSMean  Standard Error  Lower CL  Upper CL
+--------  --------  --------------  --------  --------
+A           5.4267          0.1321    5.1560    5.6973
+B           3.2200          0.1321    2.9493    3.4907
+
+      Differences of Least Squares Means for group      
+
+Comparison  Estimate  Standard Error   t Value  Pr > |t|
+----------  --------  --------------  --------  --------
+A - B         2.2067          0.1869     11.81    <.0001
+
+                                                The UNIVARIATE Procedure
+                                                  Variable:  residual
+
+                                                        Moments
+
+N                                 30    Sum Weights                       30
+Mean                       -0.000000    Sum Observations           -0.000000
+Std Deviation               0.502865    Variance                    0.252874
+Skewness                    0.031265    Kurtosis                   -1.185666
+Uncorrected SS              7.333333    Corrected SS                7.333333
+Coeff Variation                    .    Std Error Mean              0.091810
+
+         Basic Statistical Measures         
+
+Location             Variability            
+--------  ---------  -------------  --------
+Mean      -0.000000  Std Deviation  0.502865
+Median     0.026667  Variance       0.252874
+Mode              .  Range          1.700000
+
+Quantiles (Definition 5)
+
+Quantile     Estimate
+----------  ---------
+0% Min      -0.826667
+1%          -0.826667
+5%          -0.726667
+10%         -0.673333
+25% Q1      -0.426667
+50% Median   0.026667
+75% Q3       0.380000
+90%          0.676667
+95%          0.780000
+99%          0.873333
+100% Max     0.873333
+
+         Extreme Observations          
+
+Lowest               Highest           
+--------  ---------  --------  --------
+Value     -0.826667  Value     0.580000
+Value     -0.726667  Value     0.673333
+Value     -0.720000  Value     0.680000
+Value     -0.626667  Value     0.780000
+Value     -0.620000  Value     0.873333
+
+
+
+
+         Tests for Location          
+
+Test                Statistic   p Value
+------------------  ---------  --------
+Student's t                -0         1
+Sign                        0         1
+Signed Rank                -3  0.975387056
+
